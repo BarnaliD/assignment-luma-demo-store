@@ -1,5 +1,5 @@
 const { Builder , By ,Key , until } = require('selenium-webdriver');
-const { elementLocated } = require('selenium-webdriver/lib/until');
+//const { elementLocated } = require('selenium-webdriver/lib/until');
 const should = require('chai').should();
 require('dotenv').config();
 
@@ -11,7 +11,7 @@ As an user I should be able to log in
 to see my profile*/
 
 //.only() -run onlythis test block//.ship() -skip this specific test
-describe.only('Login to Luma Demostore', () => {
+describe('Login to Luma Demostore', () => {
     context(' I Click on login and enter my credentials', () => {
         it('I should be logged in and see my profile',async () => {
             const driver = await new Builder().forBrowser('firefox').build();
@@ -49,6 +49,7 @@ describe.only('Login to Luma Demostore', () => {
             
 
             }finally {
+                await driver.sleep(5000);
                 await driver.quit();
             }
 
